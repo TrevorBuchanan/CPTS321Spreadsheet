@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:My321HW4.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="800" Height="800"
+        x:Class="My321HW4.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="My321HW4">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <StackPanel>
+        <StackPanel>
+            <Button Width="100" Height="30" Name="Demo" Click="Demo_OnClick"> Demo </Button>
+        </StackPanel>
+        <StackPanel>
+            <DataGrid Name="SpreadsheetDataGrid" Height = "800" HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto" HeadersVisibility="All" RowHeaderWidth="40"
+                      AutoGenerateColumns="False">
+                <DataGrid.Styles>
+                    <Style Selector="DataGridColumnHeader">
+                        <Setter Property="FontWeight" Value="Bold" />
+                    </Style>
+                    <!-- Add bottom lines to row headers -->
+                    <Style Selector="DataGridRowHeader">
+                        <Setter Property="AreSeparatorsVisible" Value="True" />
+                    </Style>
+                    <!-- Add bottom and right lines to grid cells-->
+                    <Style Selector="DataGridCell /template/ ContentPresenter">
+                        <Setter Property="BorderThickness" Value="0,0,1,1" />
+                        <Setter Property="BorderBrush" Value="#33000000" />
+                    </Style>
+                </DataGrid.Styles>
+            </DataGrid>
+        </StackPanel>
+    </StackPanel>
+
+
+</Window>
