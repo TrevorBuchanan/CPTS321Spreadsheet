@@ -16,6 +16,10 @@ namespace My321HW4.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
+    public event EventHandler<DataGridPreparingCellForEditEventArgs> PreparingCellForEdit = delegate { };
+    public event EventHandler<DataGridCellEditEndingEventArgs> CellEditEnding = delegate { };
+
+
     // ______ Private variables ___________
     private bool _isInitiated;
     private Spreadsheet _spreadsheet;
@@ -46,36 +50,62 @@ public class MainWindowViewModel : ViewModelBase
     {
         if (_isInitiated) return;
 
-        // initialize A to Z columns headers since these are indexed this is not a behavior supported by default
-        var columnCount = 'Z' - 'A' + 1;
-        foreach (var columnIndex in Enumerable.Range(0, columnCount))
+        try
         {
-            // for each column we will define the header text and the binding to use
-            var columnHeader = (char)('A' + columnIndex);
-            var columnTemplate = new DataGridTemplateColumn
+            // initialize A to Z columns headers since these are indexed this is not a behavior supported by default
+            var columnCount = 'Z' - 'A' + 1;
+            foreach (var columnIndex in Enumerable.Range(0, columnCount))
             {
-                Header = columnHeader,
-                CellTemplate = new FuncDataTemplate<IEnumerable<Cell>>((value, namescope) =>
-                    new TextBlock
-                    {
-                        [!TextBlock.TextProperty] = new Binding($"[{columnIndex}].Value"),
-                        TextAlignment = TextAlignment.Left,
-                        VerticalAlignment = VerticalAlignment.Center,
-                        Padding = Thickness.Parse("5,0,5,0")
-                    }),
-                CellEditingTemplate = new FuncDataTemplate<IEnumerable<Cell>>((value, namescope) =>
-                    new TextBox
-                    {
-                        [!TextBox.TextProperty] = new Binding($"[{columnIndex}].Text")
-                    })
+                // for each column we will define the header text and the binding to use
+                var columnHeader = (char)('A' + columnIndex);
+                var columnTemplate = new DataGridTemplateColumn
+                {
+                    Header = columnHeader,
+                    CellTemplate = new FuncDataTemplate<IEnumerable<Cell>>((value, namescope) =>
+                        new TextBlock
+                        {
+                            [!TextBlock.TextProperty] = new Binding($"[{columnIndex}].Value"),
+                            TextAlignment = TextAlignment.Left,
+                            VerticalAlignment = VerticalAlignment.Center,
+                            Padding = Thickness.Parse("5,0,5,0")
+                        }),
+                    CellEditingTemplate = new FuncDataTemplate<IEnumerable<Cell>>((value, namescope) =>
+                        new TextBox
+                        {
+                            [!TextBox.TextProperty] = new Binding($"[{columnIndex}].Text")
+                        })
+                };
+                spreadsheetDataGrid.Columns.Add(columnTemplate);
+            }
+
+            spreadsheetDataGrid.ItemsSource = Rows;
+            spreadsheetDataGrid.LoadingRow += (sender, args) =>
+            {
+                args.Row.Header = (args.Row.GetIndex() + 1).ToString();
             };
-            spreadsheetDataGrid.Columns.Add(columnTemplate);
+            spreadsheetDataGrid.PreparingCellForEdit += CellBeginEdit;
+            spreadsheetDataGrid.CellEditEnding += CellEditEndChange;
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine("Overflow exception");
+        }
+        catch (InvalidOperationException)
+        {
+            Console.WriteLine("Invalid Operation Exception");
         }
 
-        spreadsheetDataGrid.ItemsSource = Rows;
-        spreadsheetDataGrid.LoadingRow += (sender, args) => { args.Row.Header = (args.Row.GetIndex() + 1).ToString(); };
-
         _isInitiated = true;
+    }
+
+    private void CellBeginEdit(object? sender, DataGridPreparingCellForEditEventArgs e)
+    {
+        Console.WriteLine("Cell begin edit");
+    }
+    
+    private void CellEditEndChange(object? sender, DataGridCellEditEndingEventArgs e)
+    {
+        Console.WriteLine("Cell end edit");
     }
 
     /// <summary>

@@ -17,9 +17,9 @@
     </Design.DataContext>
 
     <StackPanel>
-        <StackPanel>
-            <Button Width="100" Height="30" Name="Demo" Click="Demo_OnClick"> Demo </Button>
-        </StackPanel>
+        <!-- <StackPanel> -->
+        <!--     <Button Width="100" Height="30" Name="Demo" Click="Demo_OnClick"> Demo </Button> -->
+        <!-- </StackPanel> -->
         <StackPanel>
             <DataGrid Name="SpreadsheetDataGrid" Height = "800" HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto" HeadersVisibility="All" RowHeaderWidth="40"

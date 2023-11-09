@@ -1450,6 +1450,9 @@
       "SpreadsheetEngine/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Avalonia.Controls.DataGrid": "11.0.4"
+        },
         "compile": {
           "bin/placeholder/SpreadsheetEngine.dll": {}
         },
