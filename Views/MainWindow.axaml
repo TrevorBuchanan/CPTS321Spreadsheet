@@ -3,20 +3,26 @@
         xmlns:vm="using:My321HW4.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:utils="using:My321HW4"
+        xmlns:utils="using:My321HW4.ViewModels"
+        xmlns:valueConverters="clr-namespace:SpreadsheetEngine.ValueConverters"
+        xmlns:viewModels="clr-namespace:SpreadsheetEngine.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         Width="800" Height="800"
         x:Class="My321HW4.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="My321HW4">
+    <Window.Resources>
+        <valueConverters:RowViewModelToIBrushConverter x:Key="RowBrushConverter" />
+    </Window.Resources>
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel />
     </Design.DataContext>
-    
+
+
     <StackPanel>
         <!-- <StackPanel> -->
         <!--     <Button Width="100" Height="30" Name="Demo" Click="Demo_OnClick"> Demo </Button> -->
@@ -24,22 +30,25 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Open..."/>
-                    <Separator/>
-                    <MenuItem Header="_Exit"/>
+                    <MenuItem Header="_Open..." />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
                 </MenuItem>
                 <MenuItem Header="_Edit">
-                    <MenuItem Header="Copy"/>
-                    <MenuItem Header="Paste"/>
+                    <MenuItem Header="Redo" />
+                    <MenuItem Header="Undo" />
+                </MenuItem>
+                <MenuItem Header="_Cell">
+                    <MenuItem Header="Change background color" />
                 </MenuItem>
             </Menu>
-            <Button Width="55" Height="30" Name="Undo"> Undo </Button>
-            <Button Width="55" Height="30" Name="Redo"> Undo </Button>
-            <Button Width="195" Height="30" Name="EditCellColor"> Change Background Color </Button>
+            <Button Width="55" Height="30" Name="Undo" Click="Undo_OnClick"> Undo </Button>
+            <Button Width="55" Height="30" Name="Redo" Click="Redo_OnClick"> Undo </Button>
+            <Button Width="195" Height="30" Name="EditCellColor" Click="Color_OnClick"> Change Background Color </Button>
         </DockPanel>
-    
+
         <StackPanel>
-            <DataGrid Name="SpreadsheetDataGrid" Height = "800" HorizontalScrollBarVisibility="Auto"
+            <DataGrid Name="SpreadsheetDataGrid" Height="800" HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto" HeadersVisibility="All" RowHeaderWidth="40"
                       AutoGenerateColumns="False">
                 <DataGrid.Styles>
@@ -54,6 +63,24 @@
                     <Style Selector="DataGridCell /template/ ContentPresenter">
                         <Setter Property="BorderThickness" Value="0,0,1,1" />
                         <Setter Property="BorderBrush" Value="#33000000" />
+                    </Style>
+                </DataGrid.Styles>
+                <DataGrid.Styles>
+                    <!-- Remove blue background on row header when selecting a cell -->
+                    <Style Selector="DataGridRow:selected /template/Rectangle#BackgroundRectangle">
+                        <Setter Property="Fill" Value="Transparent" />
+                    </Style>
+                    <Style Selector="DataGridRowHeader:selected">
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                    <Style Selector="DataGridRowHeader:selected /template/Rectangle#BackgroundRectangle">
+                        <Setter Property="Fill" Value="Transparent" />
+                    </Style>
+                    <!-- Bind DataGridCell background to a Property on the Row view model -->
+                    <!-- since we can't bind directly to a cell view model -->
+                    <Style Selector="DataGridCell.SpreadsheetCellClass" x:DataType="viewModels:RowViewModel">
+                        <Setter Property="Background" Value="{Binding SelfReference,
+                                Converter={StaticResource RowBrushConverter}}" />
                     </Style>
                 </DataGrid.Styles>
             </DataGrid>

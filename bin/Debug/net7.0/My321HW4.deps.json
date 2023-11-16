@@ -9,6 +9,7 @@
       "My321HW4/1.0.0": {
         "dependencies": {
           "Avalonia": "11.0.4",
+          "Avalonia.Controls.ColorPicker": "11.0.4",
           "Avalonia.Controls.DataGrid": "11.0.4",
           "Avalonia.Desktop": "11.0.2",
           "Avalonia.Diagnostics": "11.0.2",
@@ -92,15 +93,15 @@
         }
       },
       "Avalonia.BuildServices/0.0.29": {},
-      "Avalonia.Controls.ColorPicker/11.0.2": {
+      "Avalonia.Controls.ColorPicker/11.0.4": {
         "dependencies": {
           "Avalonia": "11.0.4",
           "Avalonia.Remote.Protocol": "11.0.4"
         },
         "runtime": {
           "lib/net6.0/Avalonia.Controls.ColorPicker.dll": {
-            "assemblyVersion": "11.0.2.0",
-            "fileVersion": "11.0.2.0"
+            "assemblyVersion": "11.0.4.0",
+            "fileVersion": "11.0.4.0"
           }
         }
       },
@@ -134,7 +135,7 @@
       "Avalonia.Diagnostics/11.0.2": {
         "dependencies": {
           "Avalonia": "11.0.4",
-          "Avalonia.Controls.ColorPicker": "11.0.2",
+          "Avalonia.Controls.ColorPicker": "11.0.4",
           "Avalonia.Controls.DataGrid": "11.0.4",
           "Avalonia.Themes.Simple": "11.0.2",
           "Microsoft.CodeAnalysis.CSharp.Scripting": "3.8.0",
@@ -1024,12 +1025,12 @@
       "path": "avalonia.buildservices/0.0.29",
       "hashPath": "avalonia.buildservices.0.0.29.nupkg.sha512"
     },
-    "Avalonia.Controls.ColorPicker/11.0.2": {
+    "Avalonia.Controls.ColorPicker/11.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-q1FxeYTIrtdFabxXfCqLbQRV6+89Q8RwRWXCztvIKAylSQ4mvv5R4dWYDP7rbdY5IYZWgwurCo4xB+wwMNuTqQ==",
-      "path": "avalonia.controls.colorpicker/11.0.2",
-      "hashPath": "avalonia.controls.colorpicker.11.0.2.nupkg.sha512"
+      "sha512": "sha512-8Hp/oOBZmq3fBQLpN2JZRZsv7eoZjeGml1y6evM3UUWNBIByb2bLJ2Lt2p9JGR4mwm7hO2nBMfJH4UdG23Q0Cg==",
+      "path": "avalonia.controls.colorpicker/11.0.4",
+      "hashPath": "avalonia.controls.colorpicker.11.0.4.nupkg.sha512"
     },
     "Avalonia.Controls.DataGrid/11.0.4": {
       "type": "package",

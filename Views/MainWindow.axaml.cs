@@ -24,12 +24,23 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
                 }
             });
     }
+    private void Undo_OnClick(object? sender, RoutedEventArgs e)
+    {
+        // ViewModel?.RunDemo();
+    }
     
+    private void Redo_OnClick(object? sender, RoutedEventArgs e)
+    {
+        // ViewModel?.RunDemo();
+    }
+    
+    private void Color_OnClick(object? sender, RoutedEventArgs e)
+    {
+        // ViewModel?.RunDemo();
+    }
     
     private void Demo_OnClick(object? sender, RoutedEventArgs e)
     {
         ViewModel?.RunDemo();
-        return;
-        throw new NotImplementedException();
     }
 }

@@ -53,7 +53,7 @@ public class CellViewModel : ViewModelBase
 
     public virtual uint BackgroundColor
     {
-        get => cell.BackgroundColor;
-        set => cell.BackgroundColor = value;
+        get => cell.BGColor;
+        set => cell.BGColor = value;
     }
 }

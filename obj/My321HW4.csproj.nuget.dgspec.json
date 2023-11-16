@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[11.0.4, )"
             },
+            "Avalonia.Controls.ColorPicker": {
+              "target": "Package",
+              "version": "[11.0.4, )"
+            },
             "Avalonia.Controls.DataGrid": {
               "target": "Package",
               "version": "[11.0.4, )"

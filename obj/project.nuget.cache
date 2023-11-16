@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "oIxjn959HKvWwyWwbJUnbXFUwa5bcPn2m77g7SLrLNCl1xwglTbm1Q1TyQ5wJU9FuWGlYa80/ww3t9k9ogBZAA==",
+  "dgSpecHash": "yj0XmP/Fqxpb350RGPPoblmvPqquNX4acKJGqH0oHWVcYrxTOh++tFTh54J4WRWA0fJNx2LQYcH66aj5m8D52g==",
   "success": true,
   "projectFilePath": "/Users/trevorbuchanan/Desktop/Classes/CPTS 321/My321HW4/My321HW4/My321HW4.csproj",
   "expectedPackageFiles": [
     "/Users/trevorbuchanan/.nuget/packages/avalonia/11.0.4/avalonia.11.0.4.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/avalonia.angle.windows.natives/2.1.0.2023020321/avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/avalonia.buildservices/0.0.29/avalonia.buildservices.0.0.29.nupkg.sha512",
-    "/Users/trevorbuchanan/.nuget/packages/avalonia.controls.colorpicker/11.0.2/avalonia.controls.colorpicker.11.0.2.nupkg.sha512",
+    "/Users/trevorbuchanan/.nuget/packages/avalonia.controls.colorpicker/11.0.4/avalonia.controls.colorpicker.11.0.4.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/avalonia.controls.datagrid/11.0.4/avalonia.controls.datagrid.11.0.4.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/avalonia.desktop/11.0.2/avalonia.desktop.11.0.2.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/avalonia.diagnostics/11.0.2/avalonia.diagnostics.11.0.2.nupkg.sha512",
