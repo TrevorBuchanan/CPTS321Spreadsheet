@@ -69,6 +69,10 @@
             "Avalonia.Themes.Fluent": {
               "target": "Package",
               "version": "[11.0.4, )"
+            },
+            "AvaloniaColorPicker": {
+              "target": "Package",
+              "version": "[1.4.0, )"
             }
           },
           "imports": [

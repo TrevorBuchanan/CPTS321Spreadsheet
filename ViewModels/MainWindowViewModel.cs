@@ -18,7 +18,9 @@ public class MainWindowViewModel : ViewModelBase
 {
     public event EventHandler<DataGridPreparingCellForEditEventArgs> PreparingCellForEdit = delegate { };
     public event EventHandler<DataGridCellEditEndingEventArgs> CellEditEnding = delegate { };
-
+    public IList MyItems { get; set; }
+    
+    
 
     // ______ Private variables ___________
     private bool _isInitiated;
@@ -33,6 +35,9 @@ public class MainWindowViewModel : ViewModelBase
     /// </summary>
     public MainWindowViewModel()
     {
+        MyItems = new List<string>() { "Test1", "Test2" };
+        
+        
         // InitializeSpreadsheet();
         _spreadsheet = new Spreadsheet(50, 'Z' - 'A' + 1);
         var rowCount = _spreadsheet.RowCount;
@@ -102,7 +107,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         Console.WriteLine("Cell begin edit");
     }
-    
+
     private void CellEditEndChange(object? sender, DataGridCellEditEndingEventArgs e)
     {
         Console.WriteLine("Cell end edit");

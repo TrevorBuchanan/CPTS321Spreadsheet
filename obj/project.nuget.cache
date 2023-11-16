@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HmvwrhwDcqRMEIJ8TjXrnRbfWQw8OUS+wPGBPWcsjFIjsd5tI084EEA7Z5fWn4IHCZAI3SPiJDnIAiE7ZW1G+Q==",
+  "dgSpecHash": "oIxjn959HKvWwyWwbJUnbXFUwa5bcPn2m77g7SLrLNCl1xwglTbm1Q1TyQ5wJU9FuWGlYa80/ww3t9k9ogBZAA==",
   "success": true,
   "projectFilePath": "/Users/trevorbuchanan/Desktop/Classes/CPTS 321/My321HW4/My321HW4/My321HW4.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "/Users/trevorbuchanan/.nuget/packages/avalonia.themes.simple/11.0.2/avalonia.themes.simple.11.0.2.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/avalonia.win32/11.0.2/avalonia.win32.11.0.2.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/avalonia.x11/11.0.2/avalonia.x11.11.0.2.nupkg.sha512",
+    "/Users/trevorbuchanan/.nuget/packages/avaloniacolorpicker/1.4.0/avaloniacolorpicker.1.4.0.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/dynamicdata/7.9.5/dynamicdata.7.9.5.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/harfbuzzsharp/2.8.2.3/harfbuzzsharp.2.8.2.3.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/harfbuzzsharp.nativeassets.linux/2.8.2.3/harfbuzzsharp.nativeassets.linux.2.8.2.3.nupkg.sha512",
@@ -45,7 +46,7 @@
     "/Users/trevorbuchanan/.nuget/packages/skiasharp.nativeassets.win32/2.88.3/skiasharp.nativeassets.win32.2.88.3.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/splat/14.4.1/splat.14.4.1.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
-    "/Users/trevorbuchanan/.nuget/packages/system.collections.immutable/5.0.0/system.collections.immutable.5.0.0.nupkg.sha512",
+    "/Users/trevorbuchanan/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/system.componentmodel.annotations/4.5.0/system.componentmodel.annotations.4.5.0.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/system.diagnostics.debug/4.3.0/system.diagnostics.debug.4.3.0.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/system.drawing.common/6.0.0/system.drawing.common.6.0.0.nupkg.sha512",
@@ -69,7 +70,7 @@
     "/Users/trevorbuchanan/.nuget/packages/system.reflection.typeextensions/4.3.0/system.reflection.typeextensions.4.3.0.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/system.resources.resourcemanager/4.3.0/system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
-    "/Users/trevorbuchanan/.nuget/packages/system.runtime.compilerservices.unsafe/4.7.1/system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
+    "/Users/trevorbuchanan/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/system.runtime.extensions/4.3.0/system.runtime.extensions.4.3.0.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/system.runtime.handles/4.3.0/system.runtime.handles.4.3.0.nupkg.sha512",
     "/Users/trevorbuchanan/.nuget/packages/system.runtime.interopservices/4.3.0/system.runtime.interopservices.4.3.0.nupkg.sha512",

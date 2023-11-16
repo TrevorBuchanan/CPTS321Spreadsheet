@@ -136,3 +136,4 @@
 /Users/trevorbuchanan/Desktop/Classes/CPTS 321/My321HW4/My321HW4/obj/Debug/net7.0/ref/My321HW4.dll
 /Users/trevorbuchanan/Desktop/Classes/CPTS 321/My321HW4/My321HW4/bin/Debug/net7.0/SpreadsheetEngine.dll
 /Users/trevorbuchanan/Desktop/Classes/CPTS 321/My321HW4/My321HW4/bin/Debug/net7.0/SpreadsheetEngine.pdb
+/Users/trevorbuchanan/Desktop/Classes/CPTS 321/My321HW4/My321HW4/bin/Debug/net7.0/AvaloniaColorPicker.dll
