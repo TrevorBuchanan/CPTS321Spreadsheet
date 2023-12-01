@@ -30,7 +30,7 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Open..." />
+                    <MenuItem Header="_Open..."/>
                     <Separator />
                     <MenuItem Header="_Exit" />
                 </MenuItem>
@@ -42,9 +42,11 @@
                     <MenuItem Header="Change background color" />
                 </MenuItem>
             </Menu>
-            <Button Width="55" Height="30" Name="Undo" Click="Undo_OnClick"> Undo </Button>
-            <Button Width="55" Height="30" Name="Redo" Click="Redo_OnClick"> Undo </Button>
-            <Button Width="195" Height="30" Name="EditCellColor" Click="Color_OnClick"> Change Background Color </Button>
+            <!-- <Button Width="55" Height="30" Name="Undo" Click="Undo_OnClick"> Undo </Button> -->
+            <!-- <Button Width="55" Height="30" Name="Redo" Click="Redo_OnClick"> Redo </Button> -->
+            <!-- <Button Width="195" Height="30" Name="EditCellColor" Click="Color_OnClick"> Change Background Color </Button> -->
+            <!-- <ColorPicker > </ColorPicker> -->
+            <!-- <ColorView ></ColorView> -->
         </DockPanel>
 
         <StackPanel>

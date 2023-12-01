@@ -26,17 +26,17 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
     }
     private void Undo_OnClick(object? sender, RoutedEventArgs e)
     {
-        // ViewModel?.RunDemo();
+        ViewModel?.Undo();
     }
     
     private void Redo_OnClick(object? sender, RoutedEventArgs e)
     {
-        // ViewModel?.RunDemo();
+        ViewModel?.Redo();
     }
     
     private void Color_OnClick(object? sender, RoutedEventArgs e)
     {
-        // ViewModel?.RunDemo();
+        ViewModel?.ColorChange();
     }
     
     private void Demo_OnClick(object? sender, RoutedEventArgs e)

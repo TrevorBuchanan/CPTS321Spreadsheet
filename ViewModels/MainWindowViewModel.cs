@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reactive;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
@@ -11,6 +12,7 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
 using Avalonia.Media;
+using ReactiveUI;
 using SpreadsheetEngine;
 using SpreadsheetEngine.ViewModels;
 
@@ -88,7 +90,7 @@ public class MainWindowViewModel : ViewModelBase
                             [!TextBlock.TextProperty] = new Binding($"[{columnIndex}].Cell.Value"),
                             TextAlignment = TextAlignment.Left,
                             VerticalAlignment = VerticalAlignment.Center,
-                            Padding = Thickness.Parse("5,0,5,0")
+                            Padding = Thickness.Parse("5,0,5,0"),
                         }),
                     CellEditingTemplate = new FuncDataTemplate<IEnumerable<CellViewModel>>((value, namescope) =>
                         new TextBox
@@ -161,19 +163,38 @@ public class MainWindowViewModel : ViewModelBase
     private void CellEditEndChange(object? sender, DataGridCellEditEndingEventArgs e)
     {
         Console.WriteLine("Cell end edit");
-    }
+        bool edit = true;
+        int row = e.Row.GetIndex();
+        int col = e.Column.DisplayIndex;
 
-    /// <summary>
-    /// Run demo for spreadsheet
-    /// </summary>
-    public void RunDemo()
-    {
-        Console.WriteLine("run demo");
+        Cell cell = _spreadsheet.GetCell(row, col);
 
-        for (int i = 0; i < _spreadsheet.RowCount; i++)
+        ICommand[] undoTextCommand = new TextCommand[1];
+        string prevText = cell.Text;
+        undoTextCommand[0] = new TextCommand(cell, prevText);
+
+        try
         {
-            _spreadsheet.GetCell(i, 0).Text = "This is cell " + (char)(65 + _spreadsheet.GetCell(i, 1).ColumnIndex) +
-                                              (_spreadsheet.GetCell(i, 1).RowIndex + 1);
+            if (cell.Text == _spreadsheetData[row].Cells[col].Value)
+            {
+                edit = false;
+            }
+
+            cell.Text = _spreadsheetData[row].Cells[col].Value;
+        }
+        catch (NullReferenceException)
+        {
+            if (cell.Text == null)
+            {
+                edit = false;
+            }
+
+            cell.Text = "";
+        }
+
+        if (edit == true)
+        {
+            _spreadsheet.AddUndo(new Command(undoTextCommand, "cell text change"));
         }
     }
 
@@ -243,5 +264,36 @@ public class MainWindowViewModel : ViewModelBase
         }
 
         _selectedCells.Clear();
+    }
+
+    public void ColorChange()
+    {
+        Console.WriteLine("color change");
+    }
+
+    public void Undo()
+    {
+        Console.WriteLine("undo");
+        _spreadsheet.Undo();
+    }
+
+    public void Redo()
+    {
+        Console.WriteLine("redo");
+        _spreadsheet.Redo();
+    }
+
+    /// <summary>
+    /// Run demo for spreadsheet
+    /// </summary>
+    public void RunDemo()
+    {
+        Console.WriteLine("run demo");
+
+        for (int i = 0; i < _spreadsheet.RowCount; i++)
+        {
+            _spreadsheet.GetCell(i, 0).Text = "This is cell " + (char)(65 + _spreadsheet.GetCell(i, 1).ColumnIndex) +
+                                              (_spreadsheet.GetCell(i, 1).RowIndex + 1);
+        }
     }
 }
